@@ -26,8 +26,8 @@ kubectl -n argocd patch secret argocd-secret  -p '{"data": {"admin.password": "J
 kubectl -n argocd scale deployment argocd-server --replicas=0
 kubectl -n argocd scale deployment argocd-server --replicas=1
 
-# create azureth secret
-kubectl create secret docker-registry azureth --docker-server=https://seiitraregistrytp.azurecr.io --docker-username=6b7a8136-0e40-4b7f-866c-9de992a54f44 --docker-password=hK88Q~GmI1avHXgJgFYqKrYXlCi~wEwC7GGYhcGA -n $ns
+# install our app myapp-argo-application
+kubectl apply -f application.yaml
  
 ```
 </br>
