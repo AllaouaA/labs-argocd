@@ -19,16 +19,23 @@ kubectl port-forward svc/argocd-server 8080:443 -n argocd
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 --decode && echo
 
 # you can change and delete init password
-#Generating a bcrypt hash for the password: https://www.browserling.com/tools/bcrypt (test)
+# Generating a bcrypt hash for the password: https://www.browserling.com/tools/bcrypt (test)
 # bcrypt(password)=$2a$10$PwPtsXd6Cl9MSdQ2KiIG.upmIT2ObMTmZsI8/gW33PJZz553IkPTW
 # enocde bcrypt(password)=JDJhJDEwJFB3UHRzWGQ2Q2w5TVNkUTJLaUlHLnVwbUlUMk9iTVRtWnNJOC9nVzMzUEpaejU1M0lrUFRX
 kubectl -n argocd patch secret argocd-secret  -p '{"data": {"admin.password": "JDJhJDEwJFB3UHRzWGQ2Q2w5TVNkUTJLaUlHLnVwbUlUMk9iTVRtWnNJOC9nVzMzUEpaejU1M0lrUFRX", "admin.passwordMtime": ""}}'
 kubectl -n argocd scale deployment argocd-server --replicas=0
 kubectl -n argocd scale deployment argocd-server --replicas=1
 
-# install our app myapp-argo-application
+# Add Argocd repo template  
+repo: https://github.com/AllaouaA/demo-argocd.git
+
+# Install our app myapp-argo-application
 kubectl apply -f application.yaml
  
+# Acess to 'myapp' Application 
+kubectl get svc -n myapp 
+kubectl port-forward svc/myapp-service 8090:8080 -n myapp
+
 ```
 </br>
 
