@@ -7,8 +7,8 @@ spec:
   project: default
 
   source:
-    repoURL: https://bitbucket.seiitra.com/scm/gop/argocd-app-config.git
-    targetRevision: master
+    repoURL: https://github.com/AllaouaA/demo-argocd.git
+    targetRevision: main
     path: dev
   destination: 
     server: https://kubernetes.default.svc ## the kubernetes API server
