@@ -17,5 +17,3 @@ spec:
         image: allaoua/argocd-app:1.0
         ports:
         - containerPort: 8080
-      imagePullSecrets:
-        - name: azureth 
