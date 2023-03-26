@@ -1,10 +1,10 @@
 #### Commands
 
 ```bash
-# set proxy
+# set proxy (optional)
 export https_proxy=http://10.101.30.8:3128
 
-# create k8s cluster
+# create k8s cluster with Kind
 kind create cluster --name argo-demo
 
 # install ArgoCD in k8s
@@ -33,12 +33,13 @@ kubectl -n argocd scale deployment argocd-server --replicas=1
 repo: https://github.com/AllaouaA/demo-argocd.git
 
 # Install our app myapp-argo-application
-kubectl apply -f application.yaml
+kubectl apply -f dev/application.yaml
  
 # Acess to 'myapp' Application 
 kubectl get svc -n myapp 
-kubectl port-forward svc/myapp-service 8090:8080 -n myapp
 
+# ApplicationSet
+kubectl apply -f app-set/application.yaml
 
 https://itnext.io/level-up-your-argo-cd-game-with-applicationset-ccd874977c4c
 ```
