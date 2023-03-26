@@ -15,7 +15,7 @@ spec:
     spec:
       project: '{{myapp.project}}'
       source:
-        repoURL: git@github.com:AllaouaA/demo-argocd.git
+        repoURL: https://github.com/AllaouaA/demo-argocd.git
         targetRevision: main
         path: 'dev/helm'
         helm:
