@@ -23,11 +23,10 @@ spec:
             - values-{{k8s_cluster.name}}.yaml
       destination:
         server: '{{k8s_cluster.address}}'
-        namespace: 
+        namespace: '{{myapp.namespace}}'
       syncPolicy:
         syncOptions:
         - CreateNamespace=true
-
         automated: # enable auto sync (by default is disabled)
           selfHeal: true # Undo/override any manual changes to the cluster
           prune: true # if a component is deleted/renamed on the yaml file, argocd will also delete it
