@@ -2,3 +2,5 @@ replicas: 2
 image:
   name: allaoua/argocd-app-demo
   tage: yellow
+
+name: myapp-1

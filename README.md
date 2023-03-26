@@ -41,6 +41,9 @@ kubectl get svc -n myapp
 # ApplicationSet
 kubectl apply -f app-set/application.yaml
 
+# TODO
+# Add myapp-3 using values-prod
+
 https://itnext.io/level-up-your-argo-cd-game-with-applicationset-ccd874977c4c
 ```
 </br>
