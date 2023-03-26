@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: tenant-apps
+spec:
+  generators:
+    - git:
+        repoURL: git@github.com:example-tenant-apps.git
+        revision: HEAD
+        files:
+          - path: "argocd/tenant-discovery/**/config.json"
+  template:
+    metadata:
+      name: '{{tenant.name}}'
+    spec:
+      project: default
+      source:
+        repoURL: git@github.com:example-tenant-configurations.git
+        targetRevision: HEAD
+        path: '{{tenant.region}}/tenants/{{tenant.name}}'
+        helm:
+          valueFiles:
+            - values.{{tenant.name}}.yaml
+      destination:
+        server: '{{k8s_cluster.address}}'
+        namespace: prod
+      syncPolicy: { }

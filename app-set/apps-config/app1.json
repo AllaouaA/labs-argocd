@@ -1,0 +1,13 @@
+{
+  "tenant": {
+    "owner": "contact@tenant.com",
+    "name": "tenant",
+    "id": "tenantId",
+    "region": "eastus2"
+  },
+  "k8s_cluster": {
+    "owner": "admin@company.com",
+    "name": "customer-prod",
+    "address": "https://1.2.3.4"
+  }
+}
