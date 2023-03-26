@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: "{{ .Values.image }}:{{ .Values.tage }}"
+        image: "{{ .Values.image.name }}:{{ .Values.image.tage }}"
         ports:
         - containerPort: 8080
