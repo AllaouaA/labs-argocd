@@ -1,6 +1,6 @@
 {
   "myapp": {
-    "name": "myapp1",
+    "name": "myapp-1",
     "project": "default",
     "repository": "/dev/helm",
     "namespace": "myapp1"
