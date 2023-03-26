@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: https://github.com/AllaouaA/demo-argocd.git
     targetRevision: main
-    path: dev
+    path: dev/manifests
   destination: 
     server: https://kubernetes.default.svc ## the kubernetes API server
     namespace: myapp
