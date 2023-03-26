@@ -4,6 +4,9 @@
 # set proxy
 export https_proxy=http://10.101.30.8:3128
 
+# create k8s cluster
+kind create cluster --name argo-demo
+
 # install ArgoCD in k8s
 kubectl create namespace argocd
 kubectl apply -n argocd -f argocd-install/install.yaml
