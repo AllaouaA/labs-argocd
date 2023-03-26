@@ -5,23 +5,29 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: git@github.com:example-tenant-apps.git
+        repoURL: https://github.com/AllaouaA/demo-argocd
         revision: HEAD
         files:
-          - path: "argocd/tenant-discovery/**/config.json"
+          - path: "app-set/apps-config/**/config.json"
   template:
     metadata:
-      name: '{{tenant.name}}'
+      name: '{{myapp.name}}'
     spec:
-      project: default
+      project: '{{myapp.project}}'
       source:
-        repoURL: git@github.com:example-tenant-configurations.git
-        targetRevision: HEAD
-        path: '{{tenant.region}}/tenants/{{tenant.name}}'
+        repoURL: git@github.com:AllaouaA/demo-argocd.git
+        targetRevision: main
+        path: 'dev/helm'
         helm:
           valueFiles:
-            - values.{{tenant.name}}.yaml
+            - values-{{k8s_cluster.name}}.yaml
       destination:
         server: '{{k8s_cluster.address}}'
-        namespace: prod
-      syncPolicy: { }
+        namespace: 
+      syncPolicy:
+        syncOptions:
+        - CreateNamespace=true
+
+        automated: # enable auto sync (by default is disabled)
+          selfHeal: true # Undo/override any manual changes to the cluster
+          prune: true # if a component is deleted/renamed on the yaml file, argocd will also delete it
