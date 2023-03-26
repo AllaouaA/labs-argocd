@@ -3,7 +3,7 @@
     "name": "myapp-2",
     "project": "default",
     "repository": "/dev/helm",
-    "namespace": "myapp1"
+    "namespace": "myapp2"
   },
   "k8s_cluster": {
     "owner": "admin@company.com",

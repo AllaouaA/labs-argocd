@@ -41,6 +41,10 @@ kubectl get svc -n myapp
 # ApplicationSet
 kubectl apply -f app-set/application.yaml
 
+# Test a port forward 
+kubectl port-forward svc/myapp-1 8085:8080 -n myapp1
+
+
 # TODO
 # Add myapp-3 using values-prod
 
