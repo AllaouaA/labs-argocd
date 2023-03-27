@@ -45,7 +45,6 @@ kubectl port-forward svc/myapp-1 8085:8080 -n myapp1
 # TODO
 # Add myapp-3 using values-prod
 
-https://itnext.io/level-up-your-argo-cd-game-with-applicationset-ccd874977c4c
 ```
 </br>
 
