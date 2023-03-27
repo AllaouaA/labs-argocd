@@ -1,6 +1,6 @@
-replicas: 2
+replicas: 3
 image:
   name: allaoua/argocd-app-demo
-  tag: yellow
+  tag: blue
 
-name: myapp-2
+name: myapp-3
