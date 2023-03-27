@@ -29,9 +29,6 @@ kubectl -n argocd patch secret argocd-secret  -p '{"data": {"admin.password": "J
 kubectl -n argocd scale deployment argocd-server --replicas=0
 kubectl -n argocd scale deployment argocd-server --replicas=1
 
-# Add Argocd repo template to ArgoCD  
-repo: https://github.com/AllaouaA/demo-argocd.git
-
 # Install our app myapp-argo-application
 kubectl apply -f dev/application.yaml
  
