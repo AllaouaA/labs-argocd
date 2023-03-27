@@ -29,9 +29,6 @@ kubectl -n argocd patch secret argocd-secret  -p '{"data": {"admin.password": "J
 kubectl -n argocd scale deployment argocd-server --replicas=0
 kubectl -n argocd scale deployment argocd-server --replicas=1
 
-# Add Argocd repo template to ArgoCD  
-repo: https://github.com/AllaouaA/demo-argocd.git
-
 # Install our app myapp-argo-application
 kubectl apply -f dev/application.yaml
  
@@ -48,7 +45,6 @@ kubectl port-forward svc/myapp-1 8085:8080 -n myapp1
 # TODO
 # Add myapp-3 using values-prod
 
-https://itnext.io/level-up-your-argo-cd-game-with-applicationset-ccd874977c4c
 ```
 </br>
 
