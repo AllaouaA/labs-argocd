@@ -1,0 +1,13 @@
+{
+  "myapp": {
+    "name": "myapp-3",
+    "project": "default",
+    "repository": "/dev/helm",
+    "namespace": "myapp3"
+  },
+  "k8s_cluster": {
+    "owner": "admin@company.com",
+    "name": "prod",
+    "address": "https://kubernetes.default.svc"
+  }
+}
