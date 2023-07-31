@@ -32,9 +32,6 @@ kubectl port-forward svc/myapp-1 8085:8080 -n myapp1
 # TODO
  Deploy myapp-3 using a values-prod.yaml
 
-```
-</br>
-
 #### Links
 
 
