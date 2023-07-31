@@ -1,9 +1,4 @@
 #### Commands
-
-```bash
-# set proxy (optional)
-export https_proxy=http://10.101.30.8:3128
-
 # create k8s cluster with Kind
 kind create cluster --name argo-demo
 
