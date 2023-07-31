@@ -17,9 +17,9 @@ kubectl port-forward svc/argocd-server 8080:443 -n argocd
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 --decode && echo
 
 # you can change and delete init password
- Generating a bcrypt hash for the password: https://www.browserling.com/tools/bcrypt (test)
- bcrypt(password)=$2a$10$PwPtsXd6Cl9MSdQ2KiIG.upmIT2ObMTmZsI8/gW33PJZz553IkPTW
- enocde bcrypt(password)=JDJhJDEwJFB3UHRzWGQ2Q2w5TVNkUTJLaUlHLnVwbUlUMk9iTVRtWnNJOC9nVzMzUEpaejU1M0lrUFRX
+ > Generating a bcrypt hash for the password: https://www.browserling.com/tools/bcrypt (test)
+ > bcrypt(password)=$2a$10$PwPtsXd6Cl9MSdQ2KiIG.upmIT2ObMTmZsI8/gW33PJZz553IkPTW
+ > enocde bcrypt(password)=JDJhJDEwJFB3UHRzWGQ2Q2w5TVNkUTJLaUlHLnVwbUlUMk9iTVRtWnNJOC9nVzMzUEpaejU1M0lrUFRX
 kubectl -n argocd patch secret argocd-secret  -p '{"data": {"admin.password": "JDJhJDEwJFB3UHRzWGQ2Q2w5TVNkUTJLaUlHLnVwbUlUMk9iTVRtWnNJOC9nVzMzUEpaejU1M0lrUFRX", "admin.passwordMtime": ""}}'
 kubectl -n argocd scale deployment argocd-server --replicas=0
 kubectl -n argocd scale deployment argocd-server --replicas=1
@@ -30,7 +30,7 @@ kubectl apply -f dev/application.yaml
 # Acess to 'myapp' Application 
 kubectl get svc -n myapp 
 
-# ApplicationSet
+# install our application Set
 kubectl apply -f app-set/application.yaml
 
 # Test a port forward 
@@ -38,7 +38,7 @@ kubectl port-forward svc/myapp-1 8085:8080 -n myapp1
 
 
 # TODO
-# Add myapp-3 using values-prod
+# deploy myapp-3 using a values-prod.yaml
 
 ```
 </br>
