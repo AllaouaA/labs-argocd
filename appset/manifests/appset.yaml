@@ -5,7 +5,7 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://bitbucket.seiitra.com/scm/gop/argocd.labs.git
+        repoURL: https://github.com/AllaouaA/labs-argocd.git
         revision: HEAD
         files:
           - path: "appset/apps-config/**/config.json"
@@ -15,7 +15,7 @@ spec:
     spec:
       project: '{{myapp.project}}'
       source:
-        repoURL: https://bitbucket.seiitra.com/scm/gop/argocd.labs.git
+        repoURL: https://github.com/AllaouaA/labs-argocd.git
         targetRevision: master
         path: 'demo/helm'
         helm:

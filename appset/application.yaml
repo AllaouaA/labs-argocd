@@ -7,7 +7,7 @@ spec:
   project: default
 
   source:
-    repoURL: https://bitbucket.seiitra.com/scm/gop/argocd.labs.git
+    repoURL: https://github.com/AllaouaA/labs-argocd.git
     targetRevision: master
     path: appset/manifests
   destination: 
