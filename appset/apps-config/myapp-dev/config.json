@@ -1,9 +1,9 @@
 {
   "myapp": {
-    "name": "myapp-1",
+    "name": "myapp-dev",
     "project": "default",
-    "repository": "/dev/helm",
-    "namespace": "myapp1"
+    "repository": "/demo/helm",
+    "namespace": "dev-apps"
   },
   "k8s_cluster": {
     "owner": "admin@company.com",

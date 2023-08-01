@@ -1,20 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: myapp-argo-application
+  name: demo-argo-app
   namespace: argocd
   labels:
-    app: demo
+    app: demo-app
 spec:
   project: default
 
   source:
-    repoURL: https://github.com/AllaouaA/demo-argocd.git
-    targetRevision: main
-    path: dev/manifests
+    repoURL: https://bitbucket.seiitra.com/scm/gop/argocd.labs.git
+    targetRevision: master
+    path: demo/manifests
   destination: 
     server: https://kubernetes.default.svc ## the kubernetes API server
-    namespace: myapp
+    namespace: demo
 
   syncPolicy:
     syncOptions:

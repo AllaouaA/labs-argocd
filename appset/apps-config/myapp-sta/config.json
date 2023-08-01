@@ -1,9 +1,9 @@
 {
   "myapp": {
-    "name": "myapp-2",
+    "name": "myapp-sta",
     "project": "default",
-    "repository": "/dev/helm",
-    "namespace": "myapp2"
+    "repository": "/demo/helm",
+    "namespace": "sta-apps"
   },
   "k8s_cluster": {
     "owner": "admin@company.com",

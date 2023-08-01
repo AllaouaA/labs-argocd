@@ -1,3 +1,5 @@
 image:
   name: allaoua/argocd-app-demo
   tage: blue
+  
+replicas: 1

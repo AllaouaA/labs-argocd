@@ -5,19 +5,19 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/AllaouaA/demo-argocd
+        repoURL: https://bitbucket.seiitra.com/scm/gop/argocd.labs.git
         revision: HEAD
         files:
-          - path: "app-set/apps-config/**/config.json"
+          - path: "appset/apps-config/**/config.json"
   template:
     metadata:
       name: '{{myapp.name}}'
     spec:
       project: '{{myapp.project}}'
       source:
-        repoURL: https://github.com/AllaouaA/demo-argocd.git
-        targetRevision: main
-        path: 'dev/helm'
+        repoURL: https://bitbucket.seiitra.com/scm/gop/argocd.labs.git
+        targetRevision: master
+        path: 'demo/helm'
         helm:
           valueFiles:
             - values-{{k8s_cluster.name}}.yaml
