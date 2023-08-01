@@ -1,44 +1,36 @@
 #### Commands
 
 ```bash
-# create k8s cluster with docker-desktop
+# create k8s cluster with docker-desktop or kind https://kind.sigs.k8s.io/docs/user/quick-start/
 
-# check contexts
+# make sure you are using the correct context
 kubectl config get-contexts                          # display list of contexts
 kubectl config current-context                       # display the current-context
-kubectl config use-context docker-desktop           # set the default context to docker-desktop
+kubectl config use-context docker-desktop           # set the default context
 
-# install ArgoCD => WD: argocd.labs
+# install ArgoCD
 kubectl create -f argocd-install/ns.yaml
 kubectl create -n argocd -f argocd-install/install.yaml
 
-# check pods status
+# check argocd pods status
 kubectl get po -n argocd -w
 
-# access ArgoCD UI
+# access the argocd UI
 kubectl get svc -n argocd
 kubectl port-forward svc/argocd-server 8080:443 -n argocd
 
 # login with admin user and below pwd
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 --decode && echo
 
-# you can change and delete init password
-# Generating a bcrypt hash for the password: https://www.browserling.com/tools/bcrypt (test)
-# bcrypt(password)=$2a$10$PwPtsXd6Cl9MSdQ2KiIG.upmIT2ObMTmZsI8/gW33PJZz553IkPTW
-# enocde bcrypt(password)=JDJhJDEwJFB3UHRzWGQ2Q2w5TVNkUTJLaUlHLnVwbUlUMk9iTVRtWnNJOC9nVzMzUEpaejU1M0lrUFRX
-kubectl -n argocd patch secret argocd-secret  -p '{"data": {"admin.password": "JDJhJDEwJFB3UHRzWGQ2Q2w5TVNkUTJLaUlHLnVwbUlUMk9iTVRtWnNJOC9nVzMzUEpaejU1M0lrUFRX", "admin.passwordMtime": ""}}'
-kubectl -n argocd scale deployment argocd-server --replicas=0
-kubectl -n argocd scale deployment argocd-server --replicas=1
-
-# Install our app myapp-argo-application
+# install the application "myapp-argo-application"
 kubectl apply -f demo/application.yaml
  
-# Acess to demo Application 
+# Access the demo Application 
 kubectl get svc -n demo 
 kubectl port-forward svc/myapp-service 8085:8080 -n demo
 
 # ApplicationSet controller is already installed
-# deploy ApplicationSet
+# install the demo applicationSet
 kubectl apply -f appset/application.yaml
 
 
