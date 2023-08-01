@@ -1,4 +1,4 @@
-#### Commands
+#### Hands-on-ArgoCD-AppSet
 
 ```bash
 # create k8s cluster with docker-desktop or kind https://kind.sigs.k8s.io/docs/user/quick-start/
